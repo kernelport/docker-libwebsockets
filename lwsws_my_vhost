@@ -1,0 +1,57 @@
+{
+ "vhosts": [ {
+     "name": "my_vhost",
+     "port": "7681",
+     "interface": "eth0",
+     "access-log": "/var/log/lwsws/test-access-log",
+     "mounts": [{
+         "mountpoint": "/",
+         "origin": "file://_lws_ddir_/libwebsockets-test-server",
+         "default": "test.html",
+         "cache-max-age": "60",
+         "cache-reuse": "1",
+         "cache-revalidate": "1",
+         "cache-intermediaries": "0"
+       }, {
+         "mountpoint": "/check",
+         "origin": "file://_lws_ddir_/libwebsockets-test-server",
+         "default": "check.html"
+       }, {
+        "mountpoint": "/server-status",
+        "origin": "file://_lws_ddir_/libwebsockets-test-server/server-status",
+        "default": "server-status.html"
+       }, {
+	"mountpoint": "/testcgi",
+	"origin": "cgi://_lws_ddir_/libwebsockets-test-server/lws-cgi-test.sh"
+       }, {
+        "mountpoint": "/formtest",
+        "origin": "callback://protocol-post-demo" 
+       }],
+     # which protocols are enabled for this vhost, and optional
+     # vhost-specific config options for the protocol
+     #
+     "ws-protocols": [{
+       "lws-meta": {
+         "status": "ok"
+       },
+       "dumb-increment-protocol": {
+         "status": "ok"
+       },
+       "lws-mirror-protocol": {
+         "status": "ok"
+       },
+       "lws-status": {
+         "status": "ok"
+       },
+       "protocol-post-demo": {
+         "status": "ok"
+       },
+       "lws-server-status": {
+         "status": "ok",
+	 "update-ms": "5000"
+       }
+     }]
+    }
+  ]
+}
+
