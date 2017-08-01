@@ -1,10 +1,13 @@
 # Docker image with libwebsockets lwsws server based on debian stretch
 
 ## Build
-sudo docker build -t libwebsockets .
+docker build -t libwebsockets .
 
 ## Run
-sudo docker run -p 80:7681 -it libwebsockets
+docker run -p 80:7681 -it libwebsockets
+
+## Use the automated Build
+docker pull kernelport/docker-libwebsockets
 
 ## Demo App
 open web browser:
@@ -25,7 +28,7 @@ lwsws[7]: wsi 0x556942153200: TIMEDOUT WAITING on 17 (did hdr 0, ah (nil), wl 0,
 lwsws[7]: bad lws_meta cmd 0x72
 
 #### libwebsockets-test-server result to 
-sudo docker run -p 80:7681 -it libwebsockets /usr/local/bin/libwebsockets-test-server
+docker run -p 80:7681 -it libwebsockets /usr/local/bin/libwebsockets-test-server
 
 running without Disconnect
 
