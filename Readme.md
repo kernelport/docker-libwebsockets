@@ -8,6 +8,7 @@ docker run -p 80:7681 -it libwebsockets
 
 ## Use the automated Build
 docker pull kernelport/docker-libwebsockets
+docker run -p 80:7681 -it kernelport/docker-libwebsockets
 
 ## Demo App
 open web browser:
